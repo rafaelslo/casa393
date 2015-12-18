@@ -31,11 +31,11 @@ public class MainActivity extends MinhaActivity {
 			setContentView(R.layout.activity_main);
 
 			//Obtem o XML do site
-			AsyncTask<String, Integer, String> com = new Comunica(getApplicationContext()).execute(servidor);
+			AsyncTask<String, Integer, String> com = new Comunica(getApplicationContext()).execute(servidor.concat("/query"));
 			try {
-				System.out.println("antes");
+				// RAFAEL System.out.println("antes");
 				String arquivo = com.get(5000, TimeUnit.MILLISECONDS);
-				System.out.println("depois");
+				// RAFAEL System.out.println("depois");
 				if (arquivo == null) {
 					erro = "Arquivo é nulo";
 					Exception e = new Exception();
@@ -44,9 +44,6 @@ public class MainActivity extends MinhaActivity {
 					erro = arquivo;
 					Exception e = new Exception();
 					throw(e);
-				} else {
-					
-					//System.out.println(arquivo.toString());
 				}
 
 				XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory

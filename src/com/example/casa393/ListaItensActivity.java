@@ -1,11 +1,17 @@
 package com.example.casa393;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ToggleButton;
 
 public class ListaItensActivity extends MinhaActivity {
 
@@ -58,5 +64,35 @@ public class ListaItensActivity extends MinhaActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void btnOnOffClick(View view){
+		String estado;
+		String id="2";
+		ToggleButton tb1 = (ToggleButton) view.findViewById(R.id.toggleButton1);
+		if(tb1.isChecked()) {
+			estado = "1";
+		} else { 
+			estado = "0";
+		}
+			
+		//Obtem o XML do site
+		String website = servidor.concat("/set/").concat(id).concat("/").concat(estado).concat("/");
+		System.out.println(website);
+		AsyncTask<String, Integer, String> com = new Comunica(getApplicationContext()).execute(website);
+		try {
+			String arquivo = com.get(5000, TimeUnit.MILLISECONDS);
+			System.out.println(arquivo);
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
