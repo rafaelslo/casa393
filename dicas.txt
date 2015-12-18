@@ -1,1 +1,20 @@
 http://rogerdudler.github.io/git-guide/index.pt_BR.html
+
+
+* para inicializar o git no diretório do projeto
+git init
+
+* para atualizar o repositório local
+git pull origin master
+
+* para adicionar arquivos no stage
+git add .
+
+* para copiar os arquivos para o HEAD
+git commit -a -m "descricao do commit"
+
+* para fazer upload dos arquivos
+git push origin master
+
+* para obter o status do git
+git status
