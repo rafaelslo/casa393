@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<itens>
+    <item>	
+        <id>1</id>	
+        <sistema>Luz Sinmples</sistema>	
+        <descricao>Luz Principal</descricao>	
+        <local>Escritorio</local>	
+        <pavimento>2. Pavimento</pavimento>
+    </item>
+    <item>	
+        <id>2</id>	
+        <sistema>Luz Sinmples</sistema>	
+        <descricao>Luz de Leitura</descricao>	
+        <local>Escritorio</local>	
+        <pavimento>2. Pavimento</pavimento>
+        
+    </item>
+    <item>	
+        <id>3</id>	
+        <sistema>Luz Sinmples</sistema>	
+        <descricao>Luz de Leitura</descricao>	
+        <local>Quarto Casal</local>	
+        <pavimento>2. Pavimento</pavimento>
+    </item>
+    <item>	
+        <id>4</id>	
+        <sistema>Luz Sinmples</sistema>	
+        <descricao>Luz Principal</descricao>	
+        <local>Banheiro</local>	
+        <pavimento>2. Pavimento</pavimento>
+    </item>
+    <item>	
+        <id>5</id>	
+        <sistema>Temperatura</sistema>	
+        <descricao>-</descricao>	
+        <local>Cozinha</local>	
+        <pavimento>Terreo</pavimento>
+    </item>
+    <item>	
+        <id>6</id>	
+        <sistema>Presenca</sistema>	
+        <descricao>-</descricao>	
+        <local>Cozinha</local>	
+        <pavimento>Terreo</pavimento>
+    </item>
+    <item>	
+        <id>7</id>	
+        <sistema>Energia</sistema>	
+        <descricao>Torradeira</descricao>	
+        <local>Cozinha</local>	
+        <pavimento>Terreo</pavimento>
+    </item>
+    <item>	
+        <id>8</id>	
+        <sistema>Energia</sistema>	
+        <descricao>Filtro</descricao>	
+        <local>Cozinha</local>	
+        <pavimento>Terreo</pavimento>
+    </item>    
+    <item>	
+        <id>4</id>	
+        <sistema>Luz Sinmples</sistema>	
+        <descricao>Luz Principal</descricao>	
+        <local>Cozinha</local>	
+        <pavimento>Terreo</pavimento>
+    </item>
+</itens>
