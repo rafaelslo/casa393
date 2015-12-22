@@ -1216,12 +1216,11 @@ containing a value of this type.
         public static final int activity_main=0x7f03001b;
         public static final int energia_layout=0x7f03001c;
         public static final int erro_parametros=0x7f03001d;
-        public static final int erro_timeout=0x7f03001e;
-        public static final int list_item_locais=0x7f03001f;
-        public static final int luz_simples_layout=0x7f030020;
-        public static final int presenca_layout=0x7f030021;
-        public static final int support_simple_spinner_dropdown_item=0x7f030022;
-        public static final int temperatura_layout=0x7f030023;
+        public static final int list_item_locais=0x7f03001e;
+        public static final int luz_simples_layout=0x7f03001f;
+        public static final int presenca_layout=0x7f030020;
+        public static final int support_simple_spinner_dropdown_item=0x7f030021;
+        public static final int temperatura_layout=0x7f030022;
     }
     public static final class menu {
         public static final int configura=0x7f0d0000;

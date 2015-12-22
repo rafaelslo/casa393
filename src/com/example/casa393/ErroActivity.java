@@ -11,13 +11,19 @@ public class ErroActivity extends MinhaActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.erro_parametros);
-		TextView tv1 = (TextView) findViewById(R.id.textView2);
+		TextView tv1 = (TextView) findViewById(R.id.textView1);
 		tv1.setText(erro);
 
 	}
 	
 	public void showSettings(View view) {
 		Intent i = new Intent(this, ConfiguraActivity.class);
+		startActivity(i);
+		this.finish();
+	}
+	
+	public void showMain(View view) {
+		Intent i = new Intent(this, MainActivity.class);
 		startActivity(i);
 		this.finish();
 	}

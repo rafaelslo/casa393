@@ -345,12 +345,11 @@ int layout activity_lista_itens 0x7f03001a
 int layout activity_main 0x7f03001b
 int layout energia_layout 0x7f03001c
 int layout erro_parametros 0x7f03001d
-int layout erro_timeout 0x7f03001e
-int layout list_item_locais 0x7f03001f
-int layout luz_simples_layout 0x7f030020
-int layout presenca_layout 0x7f030021
-int layout support_simple_spinner_dropdown_item 0x7f030022
-int layout temperatura_layout 0x7f030023
+int layout list_item_locais 0x7f03001e
+int layout luz_simples_layout 0x7f03001f
+int layout presenca_layout 0x7f030020
+int layout support_simple_spinner_dropdown_item 0x7f030021
+int layout temperatura_layout 0x7f030022
 int menu configura 0x7f0d0000
 int menu lista 0x7f0d0001
 int menu lista_itens 0x7f0d0002

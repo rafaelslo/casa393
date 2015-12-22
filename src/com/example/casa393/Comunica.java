@@ -25,6 +25,7 @@ public class Comunica extends AsyncTask<String, Integer, String> {
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpGet request = new HttpGet();
 			URI website = new URI(urls[0]);
+			request.addHeader("Cache-Control","no-cache");
 			request.setURI(website);
 
 			HttpResponse response = httpclient.execute(request);
