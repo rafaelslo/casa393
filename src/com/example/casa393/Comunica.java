@@ -9,14 +9,11 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 public class Comunica extends AsyncTask<String, Integer, String> {
-	Context ctx;
-	Exception exception;
-	public Comunica(Context ctx) {
-		this.ctx = ctx;
+
+	public Comunica() {
 	}
 
 	protected String doInBackground(String... urls) {
@@ -41,7 +38,6 @@ public class Comunica extends AsyncTask<String, Integer, String> {
 			return total.toString();
 			
 		} catch (Exception e) {
-			this.exception = e;
 			return null;
 		}
 	}

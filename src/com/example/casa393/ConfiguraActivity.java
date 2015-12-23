@@ -51,15 +51,15 @@ public class ConfiguraActivity extends MinhaActivity {
 	private boolean validaCampos() {
 		EditText tv1 = (EditText) findViewById(R.id.editText1);
 		EditText tv2 = (EditText) findViewById(R.id.editText2);
-		System.out.println("tv1.getText():" +  tv1.getText() + "-");
-		System.out.println("tv2.getText():" +  tv2.getText() + "-");
-		System.out.println("tv1.getText().eq: " +  tv1.getText().equals(""));
-		System.out.println("tv2.getText().eq: " +  tv2.getText().equals(""));
+		// RAFAEL System.out.println("tv1.getText():" +  tv1.getText() + "-");
+		// RAFAEL System.out.println("tv2.getText():" +  tv2.getText() + "-");
+		// RAFAEL System.out.println("tv1.getText().eq: " +  tv1.getText().equals(""));
+		// RAFAEL System.out.println("tv2.getText().eq: " +  tv2.getText().equals(""));
 		if (tv1.getText().toString().equals("") || tv2.getText().toString().equals("") || tv1.getText()== null || tv2.getText() == null) {
-			System.out.println("entrou false");
+			// RAFAEL System.out.println("entrou false");
 			return false;
 		} else {
-			System.out.println("entrou true");
+			// RAFAEL System.out.println("entrou true");
 			return true;
 		}
 	}

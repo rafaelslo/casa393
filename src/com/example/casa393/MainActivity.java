@@ -1,61 +1,33 @@
 package com.example.casa393;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends MinhaActivity {
-
+	Conecta con;
+	
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main);
-
-		// Obtem o XML do site
-		AsyncTask<String, Integer, String> com = new Comunica(
-				getApplicationContext()).execute(servidor.concat("/query"));
-		String arquivo;
+		String website = servidor.concat("/query");
 		try {
-			// RAFAEL System.out.println("antes");
-			System.out.print("Servidor: ");
-			System.out.println(servidor);
-			arquivo = com.get(5000, TimeUnit.MILLISECONDS);
-			// RAFAEL System.out.println("depois");
-			ProcessaXML arqXML = new ProcessaXML();
-			arqXML.processa(arquivo);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			System.out.println("-----ExecutionException");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TimeoutException e) {
-			erro = "TIMEOUT: Servidor não respondeu";
-			e.printStackTrace();
+			con = new Conecta(website);
+			setContentView(R.layout.activity_main);
+			System.out.println("oncreate");
+			
+		} catch (Excecao e) {
+			System.out.println("catch");
 			Intent i = new Intent(this, ErroActivity.class);
 			startActivity(i);
 			this.finish();
-			// setContentView(R.layout.erro_parametros);
-			// TODO Auto-generated catch block
-		} catch (Exception e) {
-			System.out.println("-----Exception");
-			e.printStackTrace();
-			Intent i = new Intent(this, ErroActivity.class);
-			startActivity(i);
-			this.finish();
-			// setContentView(R.layout.erro_parametros);
 		}
+		
 	}
 
 	@Override

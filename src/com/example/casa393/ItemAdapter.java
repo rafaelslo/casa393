@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class ItemAdapter extends BaseAdapter {
 	
@@ -18,7 +19,6 @@ public class ItemAdapter extends BaseAdapter {
 		super();
 		this.listaAplicada = listaAplicada;
 		this.ctx = ctx;
-		System.out.println("Construtor");
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class ItemAdapter extends BaseAdapter {
 	public int getItemViewType(int position) {
 		String tipo = listaAplicada.get(position).getSistema();
 		int retorna=0;
-		System.out.println("tipo: " + tipo);
+		// RAFAEL System.out.println("tipo: " + tipo);
 		
 		if(tipo.equals("Luz Simples")) {
 			retorna=0;
@@ -41,7 +41,7 @@ public class ItemAdapter extends BaseAdapter {
 		} else if (tipo.equals("Energia")) {
 			retorna=3;
 		}
-		System.out.println("passou: "+retorna);
+		// RAFAEL System.out.println("passou: "+retorna);
 		return retorna;
 	}
 
@@ -49,8 +49,7 @@ public class ItemAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
 		int type = getItemViewType(position);
-		System.out.println("getView");
-
+		// RAFAEL System.out.println("getView");
 
 		if (v == null) { 
 			ItemSensor c = listaAplicada.get(position);
@@ -68,31 +67,36 @@ public class ItemAdapter extends BaseAdapter {
 				v = inflater.inflate(R.layout.luz_simples_layout, parent, false); 
 				tv1 = (TextView) v.findViewById(R.id.textView1);
 				tv2 = (TextView) v.findViewById(R.id.textView2);
+				ToggleButton tb1 = (ToggleButton) v.findViewById(R.id.toggleButton1);
 				tv1.setText(c.getLocal()); 
 				tv2.setText(c.getDescricao());
+				tb1.setTag(c.getId());
 			} else if (type == 1) {
 				v = inflater.inflate(R.layout.temperatura_layout, parent, false); 
 				tv1 = (TextView) v.findViewById(R.id.textView1);
 				tv2 = (TextView) v.findViewById(R.id.textView2);
 				tv2.setText(c.getLocal()); 
-				//tv1.setText(c.getValor());
-				tv1.setText("32,5 ºC");
+				tv1.setText(c.getValor());
+				tv1.setTag(c.getId());
 			} else if (type == 2) {
 				v = inflater.inflate(R.layout.presenca_layout, parent, false); 
 				tv1 = (TextView) v.findViewById(R.id.textView1);
 				tv2 = (TextView) v.findViewById(R.id.textView2);
 				tv2.setText(c.getLocal()); 
-				//tv1.setText(c.getValor());
-				tv1.setText("01:05:32");
+				tv1.setText(c.getValor());
+				tv1.setTag(c.getId());
 			} else if (type == 3) {
 				v = inflater.inflate(R.layout.energia_layout, parent, false); 
 				tv1 = (TextView) v.findViewById(R.id.textView1);
 				tv2 = (TextView) v.findViewById(R.id.textView2);
 				tv1.setText(c.getLocal()); 
+				tv1.setTag(c.getId());
 				tv2.setText(c.getDescricao());
 			} else { 
 				//v =inflater.inflate(R.layout.simple_contact_layout, parent, false); 
 			} 
+			System.out.println("----------- ItemSensor------");
+			System.out.println(c.toString());
 		}
 		
 		return v;
@@ -100,7 +104,7 @@ public class ItemAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		System.out.println("------Achou :" + listaAplicada.size());
+		// RAFAEL System.out.println("------Achou :" + listaAplicada.size());
 		return listaAplicada.size();
 	}
 

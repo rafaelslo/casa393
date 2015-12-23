@@ -1,11 +1,8 @@
 package com.example.casa393;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +11,7 @@ import android.widget.ListView;
 import android.widget.ToggleButton;
 
 public class ListaItensActivity extends MinhaActivity {
+	Conecta con;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +66,8 @@ public class ListaItensActivity extends MinhaActivity {
 	
 	public void btnOnOffClick(View view){
 		String estado;
-		String id="2";
 		ToggleButton tb1 = (ToggleButton) view.findViewById(R.id.toggleButton1);
+		String id = tb1.getTag().toString();
 		if(tb1.isChecked()) {
 			estado = "1";
 		} else { 
@@ -78,21 +76,15 @@ public class ListaItensActivity extends MinhaActivity {
 			
 		//Obtem o XML do site
 		String website = servidor.concat("/set/").concat(id).concat("/").concat(estado).concat("/");
-		System.out.println(website);
-		AsyncTask<String, Integer, String> com = new Comunica(getApplicationContext()).execute(website);
 		try {
-			String arquivo = com.get(5000, TimeUnit.MILLISECONDS);
-			System.out.println(arquivo);
-			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TimeoutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			con = new Conecta(website);
+		} catch (Excecao e) {
+			Intent i = new Intent(this, ErroActivity.class);
+			startActivity(i);
+			this.finish();
+		}		
+		
+		
+
 	}
 }
