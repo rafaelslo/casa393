@@ -32,7 +32,7 @@ public class ItemAdapter extends BaseAdapter {
 		int retorna=0;
 		// RAFAEL System.out.println("tipo: " + tipo);
 		
-		if(tipo.equals("Luz Simples")) {
+		if(tipo.equals("Luz")) {
 			retorna=0;
 		} else if (tipo.equals("Temperatura")) {
 			retorna=1;
@@ -41,7 +41,6 @@ public class ItemAdapter extends BaseAdapter {
 		} else if (tipo.equals("Energia")) {
 			retorna=3;
 		}
-		// RAFAEL System.out.println("passou: "+retorna);
 		return retorna;
 	}
 
@@ -71,6 +70,12 @@ public class ItemAdapter extends BaseAdapter {
 				tv1.setText(c.getLocal()); 
 				tv2.setText(c.getDescricao());
 				tb1.setTag(c.getId());
+				System.out.println(c.getValor());
+				if(c.getValor().equals("0")) {
+					tb1.setChecked(false);
+				} else {
+					tb1.setChecked(true);
+				}
 			} else if (type == 1) {
 				v = inflater.inflate(R.layout.temperatura_layout, parent, false); 
 				tv1 = (TextView) v.findViewById(R.id.textView1);
@@ -89,9 +94,16 @@ public class ItemAdapter extends BaseAdapter {
 				v = inflater.inflate(R.layout.energia_layout, parent, false); 
 				tv1 = (TextView) v.findViewById(R.id.textView1);
 				tv2 = (TextView) v.findViewById(R.id.textView2);
+				ToggleButton tb1 = (ToggleButton) v.findViewById(R.id.toggleButton1);
 				tv1.setText(c.getLocal()); 
-				tv1.setTag(c.getId());
 				tv2.setText(c.getDescricao());
+				tb1.setTag(c.getId());
+				System.out.println(c.getValor());
+				if(c.getValor().equals("0")) {
+					tb1.setChecked(false);
+				} else {
+					tb1.setChecked(true);
+				}
 			} else { 
 				//v =inflater.inflate(R.layout.simple_contact_layout, parent, false); 
 			} 

@@ -37,11 +37,11 @@ public class Conecta extends MinhaActivity {
 		try {
 			arquivo = com.get(5000, TimeUnit.MILLISECONDS);
 		} catch (InterruptedException e) {
-			throw new Excecao("Interrupção na execução do programa.");
+			throw new Excecao("Interrupï¿½ï¿½o na execuï¿½ï¿½o do programa.");
 		} catch (ExecutionException e) {
-			throw new Excecao("Erro na execução do programa.");
+			throw new Excecao("Erro na execuï¿½ï¿½o do programa.");
 		} catch (TimeoutException e) {
-			throw new Excecao("TIMEOUT: não foi possível conectar.");
+			throw new Excecao("TIMEOUT: nï¿½o foi possï¿½vel conectar.");
 		}
 
 	}
@@ -49,7 +49,7 @@ public class Conecta extends MinhaActivity {
 	public void processaXML() throws Excecao {
 
 		if (arquivo == null) {
-			throw new Excecao("Arquivo é nulo");
+			throw new Excecao("Arquivo ï¿½ nulo");
 		} else if (!arquivo.contains("<itens>")) {
 			throw new Excecao(arquivo);
 		}
@@ -104,7 +104,6 @@ public class Conecta extends MinhaActivity {
 			lista = listaTemp;
 		} else {
 			ItemSensor novoItem = listaTemp.get(0);
-			//for(int i=0;i<listaTemp.size();i++) {
 			for (ItemSensor item : lista) {
 				if(item.getId().equals(novoItem.getId())) {
 					item.setValor(novoItem.getValor());

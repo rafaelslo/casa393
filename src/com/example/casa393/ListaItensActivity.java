@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class ListaItensActivity extends MinhaActivity {
@@ -40,7 +41,7 @@ public class ListaItensActivity extends MinhaActivity {
 
 		ItemAdapter adapter = new ItemAdapter(this,listaAplicada);
 
-		// Cria uma referência para a ListView
+		// Cria uma referï¿½ncia para a ListView
 		final ListView listView = (ListView) findViewById(R.id.listView1);
 		listView.setAdapter(adapter);
 	}
@@ -49,6 +50,7 @@ public class ListaItensActivity extends MinhaActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.lista_itens, menu);
+		getActionBar().setDisplayHomeAsUpEnabled(false);
 		return true;
 	}
 
@@ -78,6 +80,15 @@ public class ListaItensActivity extends MinhaActivity {
 		String website = servidor.concat("/set/").concat(id).concat("/").concat(estado).concat("/");
 		try {
 			con = new Conecta(website);
+			for (ItemSensor item : lista) {
+				if(item.getId().equals(id)) {
+					if(!item.getValor().equals(estado)) {
+						Toast t = Toast.makeText(getApplicationContext(), "Nao foi possivel alterar o valor", Toast.LENGTH_SHORT);
+						t.show();
+					}
+					break;
+				}
+			}
 		} catch (Excecao e) {
 			Intent i = new Intent(this, ErroActivity.class);
 			startActivity(i);
